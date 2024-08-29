@@ -1,7 +1,6 @@
 package med.voll.api.domain.usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,15 +10,10 @@ import org.springframework.stereotype.Service;
 public class AutenticacaoService implements UserDetailsService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    public AutenticacaoService(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
+    private UsuarioRepository repository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return usuarioRepository.findByLogin(username);
+        return repository.findByLogin(username);
     }
-
 }

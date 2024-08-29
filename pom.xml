@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>22</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -121,6 +122,19 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>4.0.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>4.0.0</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -135,6 +149,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<jvmArguments>-XX:+DisableAttachMechanism -XX:+EnableDynamicAgentLoading -Djdk.instrument.traceUsage</jvmArguments>
 				</configuration>
 			</plugin>
 		</plugins>
